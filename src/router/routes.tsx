@@ -7,12 +7,29 @@ export interface IRoute {
   children?: IRoute[];
 }
 
+const Layout = React.lazy(() => import('../pages/Layout'));
 const Home = React.lazy(() => import('../pages/Home'));
+const About = React.lazy(() => import('../pages/About'));
+const NotFound = React.lazy(() => import('../pages/NotFound'));
 
 const routes: IRoute[] = [
   {
     path: '/',
-    element: <Home></Home>,
+    element: <Layout></Layout>,
+    children: [
+      {
+        path: 'home',
+        element: <Home></Home>,
+      },
+      {
+        path: 'about',
+        element: <About></About>,
+      },
+    ],
+  },
+  {
+    path: '*',
+    element: <NotFound></NotFound>,
   },
 ];
 
