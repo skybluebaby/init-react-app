@@ -2,7 +2,6 @@ import React from 'react';
 
 export interface IRoute {
   path: string;
-  redirect?: string;
   element?: React.ReactNode;
   children?: IRoute[];
 }
@@ -12,25 +11,25 @@ const Home = React.lazy(() => import('../pages/Home'));
 const About = React.lazy(() => import('../pages/About'));
 const NotFound = React.lazy(() => import('../pages/NotFound'));
 
-const routes: IRoute[] = [
+const routeConfig: IRoute[] = [
   {
     path: '/',
-    element: <Layout></Layout>,
+    element: <Layout />,
     children: [
       {
         path: 'home',
-        element: <Home></Home>,
+        element: <Home />,
       },
       {
         path: 'about',
-        element: <About></About>,
+        element: <About />,
       },
     ],
   },
   {
     path: '*',
-    element: <NotFound></NotFound>,
+    element: <NotFound />,
   },
 ];
 
-export default routes;
+export default routeConfig;

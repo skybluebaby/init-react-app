@@ -15,8 +15,10 @@
 }
 
 .layout-aside {
+  display: flex;
+  flex-direction: column;
   width: 100px;
-  height: 100vh;
+  height: calc(100vh - 48px);
   background-color: pink;
 }
 
@@ -24,4 +26,8 @@
   flex: 1;
   padding: 20px;
   background-color: #f6f6f6;
+}
+
+.active-link {
+  color: blue;
 }

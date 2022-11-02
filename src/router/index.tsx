@@ -1,8 +1,7 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import routes, { IRoute } from './routes';
+import routeConfig, { IRoute } from './routes';
 
-// todo...配置
 const renderRoute = (route: IRoute): React.ReactNode => {
   const { path, element, children } = route;
 
@@ -13,17 +12,14 @@ const renderRoute = (route: IRoute): React.ReactNode => {
   );
 };
 
-const router = () => {
+const RouterIndex = () => {
   return (
     <Router>
       <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          {routes.map(renderRoute)}
-          <Route element={<div>404</div>}></Route>
-        </Routes>
+        <Routes>{routeConfig.map(renderRoute)}</Routes>
       </Suspense>
     </Router>
   );
 };
 
-export default router;
+export default RouterIndex;
